@@ -16,3 +16,11 @@ chat_model_name = "qwen3-max"
 
 
 md5_path = "./md5.text"
+
+
+#session_config
+session_config = {
+        "configurable": {
+            "session_id": "user_001"
+        }
+    }
