@@ -94,8 +94,9 @@ class KnowledgeBaseService(object):
         return "[成功],内容已成功上传到向量知识库中"
 
 if __name__ == '__main__':
-    service = KnowledgeBaseService()
-
-    res = service.upload_by_str("","testfile")
-
-    print(res)
+    pass
+    # service = KnowledgeBaseService()
+    #
+    # res = service.upload_by_str("","testfile")
+    #
+    # print(res)

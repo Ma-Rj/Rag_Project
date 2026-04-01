@@ -1,9 +1,14 @@
 '''
 代码基于streamlit完成web网页上传服务
 功能为：离线上传文档，并且可以获取到文件内容
+
+streamlit机制：当web页面元素发生变化，则代码重新运行一遍。发生状态的丢失
+    streamlit 因此提供了session_state（本质上是字典）来记录状态
 '''
+import time
 
 import streamlit  as st
+from knowledge_base import KnowledgeBaseService
 
 st.title("知识库更新服务")
 
@@ -13,6 +18,9 @@ uploader_file = st.file_uploader(
     type=['txt'],
     accept_multiple_files=False,  # 仅接收一个文件上传
 )
+
+if "service" not in st.session_state:
+    st.session_state["service"] = KnowledgeBaseService()
 
 if uploader_file is not None:
     file_name = uploader_file.name
@@ -25,4 +33,8 @@ if uploader_file is not None:
 
     #获取文件内容  get_value -> byte ->decode(utf-8)
     text = uploader_file.getvalue().decode("utf-8")
-    st.write(text)
+   #输出文本内容
+   #st.write(text)
+    with st.spinner("载入数据库中····"):
+        result = st.session_state["service"].upload_by_str(text, file_name)
+        st.write(result)
