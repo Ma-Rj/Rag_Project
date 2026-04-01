@@ -50,7 +50,7 @@ class KnowledgeBaseService(object):
         os.makedirs(config.persist_directory, exist_ok=True)
 
         self.chroma = Chroma(
-            collection_name=config.conllection_name,
+            collection_name=config.collection_name,
             embedding_function= DashScopeEmbeddings(model = config.embedding_model),
             persist_directory=config.persist_directory    #数据库本地存储文件夹
         )   #向量存储的实例Chroma向量库对象
