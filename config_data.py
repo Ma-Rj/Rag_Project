@@ -12,7 +12,7 @@ separators =["，", "。", "？","！", "", " ", ",", ".", "?","!","\n\n", "\n"]
 max_split_char_number = 1000 #文本分割阈值
 
 
-
+chat_model_name = "qwen3-max"
 
 
 md5_path = "./md5.text"

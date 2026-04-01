@@ -1,3 +1,8 @@
+'''
+向量嵌入检索器对象的类定义
+'''
+
+
 from langchain_chroma import Chroma
 import config_data as config
 
